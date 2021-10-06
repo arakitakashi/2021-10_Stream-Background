@@ -38,7 +38,8 @@ export default class Gradient
     this.colors.end.value = '#303548'
     this.colors.end.instance = new THREE.Color(this.colors.end.value)
 
-    this.debugFolder
+    if(this.debug) {
+      this.debugFolder
       .addInput(
         this.colors.end,
         'value',
@@ -50,6 +51,7 @@ export default class Gradient
       {
         this.colors.end.instance.set(this.colors.end.value)
       })
+    }
   }
 
   setMaterial()

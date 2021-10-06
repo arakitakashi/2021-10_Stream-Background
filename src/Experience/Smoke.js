@@ -9,6 +9,7 @@ export default class Smoke
   {
     this.experience = new Experience()
     this.scene = this.experience.scene
+    this.config = this.experience.config
     this.time = this.experience.time
     this.debug = this.experience.debug
 
@@ -33,8 +34,10 @@ export default class Smoke
   {
     this.material = new THREE.ShaderMaterial({
       depthWrite: false,
+      transparent: true,
       uniforms:
       {
+        uSize: { value: new THREE.Vector2(this.config.width, this.config.height)},
         uTime: { value: 0 },
       },
       vertexShader,
@@ -46,6 +49,11 @@ export default class Smoke
   {
     this.mesh = new THREE.Mesh(this.geometry, this.material)
     this.scene.add(this.mesh)
+  }
+
+  resize()
+  {
+    this.material.uniforms.uSize.value.set(this.config.width, this.config.height)
   }
 
   update()

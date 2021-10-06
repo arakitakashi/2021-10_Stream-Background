@@ -19,7 +19,7 @@ export default class World
             if(_group.name === 'base')
             {
                 this.setGradient()
-                // this.setSmoke()
+                this.setSmoke()
                 this.setParticles()
             }
         })
@@ -43,6 +43,10 @@ export default class World
 
     resize()
     {
+      if(this.smoke)
+      {
+        this.smoke.resize()
+      }
     }
 
     update()

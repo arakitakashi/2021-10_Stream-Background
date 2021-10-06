@@ -20,6 +20,17 @@ export default class Particles
       this.debugFolder = this.debug.addFolder({
         title: 'particles'
       })
+
+      this.debugFolder
+        .addInput(
+          this,
+          'count',
+          { min: 100, max: 500000, step: 1 }
+        )
+        .on('change', () => {
+          this.setGeometry()
+          this.points.geometry = this.geometry
+        })
     }
 
     this.setGeometry()
@@ -29,6 +40,9 @@ export default class Particles
 
   setGeometry()
   {
+    if(this.geometry) {
+      this.geometry.dispose()
+    }
     this.geometry = new THREE.BufferGeometry()
 
     const positionArray = new Float32Array(this.count * 3) 
