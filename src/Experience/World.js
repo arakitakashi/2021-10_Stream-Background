@@ -3,6 +3,7 @@ import Experience from './Experience.js'
 import Gradient from './Gradient.js'
 import Particles from './Particles.js'
 import Smoke from './Smoke.js'
+import Vignette from './Vignette.js'
 
 
 export default class World
@@ -21,6 +22,7 @@ export default class World
                 this.setGradient()
                 this.setSmoke()
                 this.setParticles()
+                this.setVignette()
             }
         })
     }
@@ -38,6 +40,11 @@ export default class World
     setSmoke()
     {
       this.smoke = new Smoke()
+    }
+
+    setVignette()
+    {
+      this.vignette = new Vignette()
     }
 
 

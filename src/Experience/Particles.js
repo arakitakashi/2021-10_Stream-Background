@@ -76,9 +76,9 @@ export default class Particles
       uniforms:
       {
         uSize: { value: 50 },
-        uProgressSpeed: { value: 0.00005 },
-        uPerlinFrequency: { value: 0.14 },
-        uPerlinMultiplier: { value: 5 },
+        uProgressSpeed: { value: 0.000015 },
+        uPerlinFrequency: { value: 0.17 },
+        uPerlinMultiplier: { value: 1 },
         uMask: { value: this.resources.items.particleMaskTexture },
         uTime: { value: 0 }
       },
